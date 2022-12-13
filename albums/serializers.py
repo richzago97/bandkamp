@@ -9,11 +9,13 @@ from .models import Album
 #     year = serializers.IntegerField()
 #     user_id = serializers.IntegerField(read_only=True)
 
-#     def create(self, validated_data):
-#         return Album.objects.create(**validated_data)
-
 
 class AlbumSerializer(serializers.ModelSerializer):
-    model = Album
-    fields = "__all__"
+    class Meta:
+        model = Album
+        fields = ["id", "user_id", "name", "year"]
+
     # read_only_fields = ["user_id"]
+
+    def create(self, validated_data):
+        return Album.objects.create(**validated_data)

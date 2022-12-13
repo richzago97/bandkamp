@@ -7,7 +7,6 @@ class Song(models.Model):
 
     title = models.CharField(max_length=255)
     duration = models.CharField(max_length=255)
-    # album_id = models.IntegerField()
 
     album = models.ForeignKey(
         "albums.Album",

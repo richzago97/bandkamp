@@ -7,7 +7,6 @@ class Album(models.Model):
 
     name = models.CharField(max_length=255)
     year = models.PositiveSmallIntegerField()
-    # user_id = models.IntegerField()
 
     user = models.ForeignKey(
         "users.User",

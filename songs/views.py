@@ -13,10 +13,6 @@ class SongView(generics.ListCreateAPIView, PageNumberPagination):
     serializer_class = SongSerializer
     queryset = Song.objects.all()
 
-    # def get_queryset(self):
-    #     album_id = self.kwargs["album_id"]
-    #     return Song.objects.filter(album_id=album_id)
-
     def get_queryset(self):
         album_id = self.kwargs["album_id"]
         return self.queryset.filter(album_id=album_id)

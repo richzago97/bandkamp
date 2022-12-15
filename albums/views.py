@@ -18,8 +18,3 @@ class AlbumView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         return serializer.save(user_id=self.request.user.id)
-
-    # def perform_create(self, serializer):
-    #     ipdb.set_trace()
-    #     user_id = self.kwargs["user_id"]
-    #     return serializer.save(user_id=user_id)

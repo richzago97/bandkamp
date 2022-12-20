@@ -26,11 +26,13 @@ urlpatterns = [
     path("api/", include("users.urls")),
     path("api/", include("albums.urls")),
     path("api/", include("songs.urls")),
-    path("docs/", SpectacularAPIView.as_view(), name="schema"),
+    path("api/docs/", SpectacularAPIView.as_view(), name="schema"),
     path(
-        "docs/swagger-ui/",
+        "api/docs/swagger-ui/",
         SpectacularSwaggerView.as_view(url_name="schema"),
         name="swagger-ui",
     ),
-    path("docs/redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
+    path(
+        "api/docs/redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"
+    ),
 ]
